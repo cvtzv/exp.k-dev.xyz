@@ -36,15 +36,6 @@
             font-size: 16px;
         }
 
-        .nav-icons .btn-login {
-            background: #4CAF50;
-            border: none;
-            color: #fff;
-            padding: 10px 20px;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-
         /* Заголовок и главная информация */
         .main-header {
             text-align: center;
@@ -96,7 +87,7 @@
         .server-section {
             display: flex;
             justify-content: center;
-            padding: 50px 0;
+            padding: 150px 0; /* Увеличиваем отступ сверху, чтобы секция серверов была ниже */
             flex-direction: column;
             align-items: center;
         }
@@ -209,35 +200,34 @@
         </div>
         <ul class="nav-links">
             <li><a href="#">Главная</a></li>
+            <li><a href="#ip">IP адрес</a></li>
+            <li><a href="/rules">Правила</a></li>
         </ul>
-        <div class="nav-icons">
-            <button class="btn-login">Авторизация</button>
-        </div>
     </nav>
 
     <header class="main-header">
         <h1>Эксперименты <span class="highlight">2024</span></h1>
-        <p>Ожидайте новый сезон вместе с другими игроками и опробуйте новый функционал перед девятым сезоном.</p>
+        <p>Ощутите новые эмоции на экспериментальном сервере, которые вы не получите на основном.. </p>
         <div class="buttons">
-            <button class="btn ip-btn">IP адреса экспериментов</button>
+            <button class="btn ip-btn" onclick="location.href='#ip'">IP адрес эксперимента</button>
         </div>
         <p class="footer-text">Minecraft: Java Edition 1.21.1 • Лицензия необязательна.</p>
     </header>
 
     <!-- Список серверов -->
-    <main class="server-section">
+    <main class="server-section" id="ip">
         <!-- Карточка сервера -->
         <div class="server-card">
             <div class="server-header">
                 <img src="server-icon.png" alt="Server Icon" class="server-icon"> <!-- Добавьте иконку сервера -->
                 <div class="server-info">
                     <h2>Эксперимент 1</h2>
-                    <p>Старт: 10 октября 2024 &nbsp; | &nbsp; Версия: 1.20.6</p>
+                    <p>Старт: 10 октября 2024 &nbsp; | &nbsp; Версия: 1.21.1</p>
                 </div>
             </div>
             <div class="server-actions">
-                <button class="btn copy-ip">Скопировать IP</button>
-                <a href="#" class="btn rules-btn">Правила</a>
+                <button class="btn copy-ip" data-ip="exp.komarucraft.pw">Скопировать IP</button>
+                <a href="/rules" class="btn rules-btn">Правила</a>
             </div>
             <p class="server-status">
                 Есть проблемы с подключением? Попробуйте подключиться используя альтернативный IP.
@@ -245,14 +235,35 @@
             <div class="alt-ip-dropdown">
                 <button class="btn alt-ip-btn">Альтернативные IP</button>
                 <div class="alt-ip-list">
-                    <a href="#">52.174.180.233</a>
+                    <a href="#" class="alt-ip" data-ip="52.174.180.233">52.174.180.233</a>
                 </div>
             </div>
         </div>
     </main>
 
     <script>
-        // JavaScript для выпадающего списка
+        // JavaScript для копирования IP
+        document.querySelectorAll('.copy-ip').forEach(button => {
+            button.addEventListener('click', () => {
+                const ip = button.getAttribute('data-ip');
+                navigator.clipboard.writeText(ip).then(() => {
+                    alert(`IP ${ip} скопирован в буфер обмена`);
+                });
+            });
+        });
+
+        // Копирование альтернативных IP
+        document.querySelectorAll('.alt-ip').forEach(link => {
+            link.addEventListener('click', (event) => {
+                event.preventDefault();
+                const ip = link.getAttribute('data-ip');
+                navigator.clipboard.writeText(ip).then(() => {
+                    alert(`Альтернативный IP ${ip} скопирован в буфер обмена`);
+                });
+            });
+        });
+
+        // Показ/скрытие выпадающего списка альтернативных IP
         document.querySelectorAll('.alt-ip-btn').forEach(button => {
             button.addEventListener('click', () => {
                 const dropdown = button.parentElement;
