@@ -1,28 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>komarucraft.pw › Эксперименты 2024</title>
+    <meta name="description" content="Minecraft Project Website">
+    <title>Эксперименты 2024</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Эксперименты 2024</h1>
-            <p id="server-status">Проверяем статус сервера..</p>
-        </header>
-        <section>
-            <h2>Информация о сервере</h2>
-            <ul>
-                <li><strong>IP:</strong> exp.komarucraft.pw</li>
-                <li><strong>Онлайн:</strong> <span id="players-online">0</span></li>
-            </ul>
-        </section>
-        <footer>
-            <p>&copy; Not an official Minecraft product. We are in no way affiliated with or endorsed by Mojang Synergies AB, Microsoft Corporation or other rightsholders.</p>
-        </footer>
-    </div>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="logo.png" alt="Logo" class="logo-img"> <!-- Добавьте свой логотип -->
+        </div>
+        <ul class="nav-links">
+            <li><a href="#">Главная</a></li>
+            <li><a href="#">О сервере</a></li>
+            <li><a href="#">Правила</a></li>
+            <li><a href="#">Вики</a></li>
+            <li><a href="#">Проекты</a></li>
+        </ul>
+        <div class="nav-icons">
+            <button class="btn-login">Авторизация</button>
+        </div>
+    </nav>
+
+    <header class="main-header">
+        <h1>Эксперименты <span class="highlight">2024</span></h1>
+        <p>Ожидайте новый сезон вместе с другими игроками и опробуйте новый функционал перед девятым сезоном.</p>
+        <div class="buttons">
+            <button class="btn access-btn">Приобрести доступ</button>
+            <button class="btn ip-btn">IP адреса экспериментов</button>
+        </div>
+        <p class="footer-text">Minecraft: Java Edition 1.20.6 • Лицензия обязательна</p>
+    </header>
 
     <script src="script.js"></script>
 </body>
