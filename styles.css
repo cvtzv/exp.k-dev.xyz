@@ -1,34 +1,111 @@
-body {
-    font-family: Arial, sans-serif;
-    background: #282828;
-    color: #fff;
-    text-align: center;
+/* Основные стили */
+body, html {
     margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(180deg, #0b0c0e, #1e2a38);
+    color: #fff;
 }
 
-.container {
-    max-width: 800px;
-    margin: 50px auto;
-    padding: 20px;
-    background: #333;
-    border-radius: 10px;
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background: #101214;
 }
 
-header {
-    margin-bottom: 30px;
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
 }
 
-h1, h2 {
+.nav-links li a {
+    color: #4CAF50;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.nav-icons .btn-login {
+    background: #4CAF50;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.main-header {
+    text-align: center;
+    padding: 100px 20px;
+    position: relative;
+    z-index: 20;
+}
+
+.main-header h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+.highlight {
     color: #4CAF50;
 }
 
-ul {
-    list-style: none;
-    padding: 0;
+.main-header p {
+    font-size: 1.2em;
+    margin-bottom: 40px;
 }
 
-footer {
-    margin-top: 50px;
-    font-size: 0.8em;
-    color: #777;
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn {
+    background: #4CAF50;
+    border: none;
+    color: #fff;
+    padding: 15px 30px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1em;
+    transition: background 0.3s ease;
+}
+
+.btn:hover {
+    background: #3a8d41;
+}
+
+.footer-text {
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: #a1a1a1;
+}
+
+/* Анимации */
+@media (prefers-reduced-motion: no-preference) {
+    .main-header h1, .main-header p, .buttons {
+        animation: homeText 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+}
+
+@keyframes homeText {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Позиционирование для элементов с z-index */
+.z-20 {
+    z-index: 20;
+}
+.relative {
+    position: relative;
 }
